@@ -2,9 +2,10 @@ import json
 
 
 def hello(event, context):
+    # TODO: event['body']をパースして、idをとり、select
     body = {
         "message": "success serverless!!!",
-        #"input": event
+        "input": event['body']
     }
 
     response = {

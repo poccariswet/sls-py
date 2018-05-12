@@ -7,9 +7,10 @@ def hello(event, context):
     Items = []
     Item1 = {
         "Item": {
-            "skucode": "0001002",
-            "商品名": "コーヒー",
+            "skucode": "0001001",
+            "p_name": "コーヒー",
             "9": 4,
+            "10": 21,
             "11": 7,
             "12": 9,
             "13": 8,
@@ -20,8 +21,9 @@ def hello(event, context):
     Item2 = {
         "Item": {
             "skucode": "0001002",
-            "商品名": "コーヒー",
+            "p_name": "カフェラテ",
             "9": 4,
+            "10": 1,
             "11": 7,
             "12": 9,
             "13": 8,
@@ -31,9 +33,10 @@ def hello(event, context):
     }
     Item3 = {
         "Item": {
-            "skucode": "0001002",
-            "商品名": "コーヒー",
+            "skucode": "0001003",
+            "p_name": "お茶",
             "9": 4,
+            "10": 1,
             "11": 7,
             "12": 9,
             "13": 8,
@@ -45,6 +48,10 @@ def hello(event, context):
 
     response = {
         "statusCode": 200,
+        "headers": {
+            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Credentials" : True
+        },
         "body": json.dumps(Items)
     }
 

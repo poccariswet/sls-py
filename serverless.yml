@@ -10,8 +10,8 @@ provider:
 
 
 functions:
-  hello:
-    handler: handler.hello
+  get_ld_rawdata_2:
+    handler: handler.get_ld_rawdata_2
 
     events:
       - http:

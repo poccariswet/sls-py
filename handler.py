@@ -1,9 +1,39 @@
 import json
 
 
-def hello(event, context):
-    # TODO: event['body']をパースして、idをとり、select
-    body = event['body']
+def get_ld_rawdata_2(event, context):
+    data = json.loads(event['body'])
+
+    if 'date' in data:
+        date = data['date']
+    else:
+        return {'statusCode': 422,
+                'body': json.dumps({'error_message': ' date is not in body.'})}
+
+    if 'BUMONCode' in data:
+         BUMONCode = data['BUMONCode']
+    else:
+         return {'statusCode': 422,
+                'body': json.dumps({'error_message': ' BUMONCode is not in body.'})}
+
+    if 'DPTCode' in data:
+        DPTCode = data['DPTCode']
+    else:
+        return {'statusCode': 422,
+                'body': json.dumps({'error_message': ' DPTCode is not in body.'})}
+
+    if 'LINECode' in data:
+        LINECode = data['LINECode']
+    else:
+        return {'statusCode': 422,
+                'body': json.dumps({'error_message': ' LINECode is not in body.'})}
+
+    if 'CLASSCode' in data:
+       CLASSCode = data['CLASSCode']
+    else:
+        return {'statusCode': 422,
+                'body': json.dumps({'error_message': ' CLASSCode is not in body.'})}
+
     Items = []
     Item1 = {
         "Item": {
@@ -15,7 +45,12 @@ def hello(event, context):
             "12": 9,
             "13": 8,
             "14": 4,
-            "15": 1
+            "15": 1,
+            "16": date,
+            "17": BUMONCode,
+            "18": DPTCode,
+            "19": LINECode,
+            "20": CLASSCode
         }
     }
     Item2 = {
@@ -28,7 +63,13 @@ def hello(event, context):
             "12": 9,
             "13": 8,
             "14": 4,
-            "15": 1
+            "15": 1,
+            "16": date,
+            "17": BUMONCode,
+            "18": DPTCode,
+            "19": LINECode,
+            "20": CLASSCode
+
         }
     }
     Item3 = {
@@ -41,7 +82,12 @@ def hello(event, context):
             "12": 9,
             "13": 8,
             "14": 4,
-            "15": 1
+            "15": 1,
+            "16": date,
+            "17": BUMONCode,
+            "18": DPTCode,
+            "19": LINECode,
+            "20": CLASSCode
         }
     }
     Items = [Item1, Item2, Item3]
